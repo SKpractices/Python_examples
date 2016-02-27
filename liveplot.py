@@ -41,3 +41,17 @@ def _quit():
 
 button=Tk.Button(root,text='Quit',command=_quit)
 button.pack(side=Tk.BOTTOM)
+
+
+def update(data):
+    global ampScale,line
+    line.set_ydata(ampScale.get()*sin(t))
+    return line,
+
+ani = animation.FuncAnimation(fig,update,ampScale.get()*sin(t), interval=100)
+#ani = animation.FuncAnimation(fig,update,init_func=init,interval=100)
+#plt.show()
+
+
+root.mainloop()
+
